@@ -13,4 +13,4 @@ Get your bridge's IP address and a user with permissions (check https://develope
 
 Enter said info on localhost:4200 in your browser, select a light to control, color and state and hit Submit to see the light change!
 
-Get Light State just gets the entire json information for the selected light.
+GetLightState just gets the entire json information for the selected light.
