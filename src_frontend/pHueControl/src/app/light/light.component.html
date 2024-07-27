@@ -1,0 +1,53 @@
+<p>
+    <label>
+        Bridge Address:
+        <input type="string" [(ngModel)]="bridgeAddress" (ngModelChange)="onBridgeAddressChange()" name="bridgeAddress">
+    </label>
+</p>
+<p>
+    <label>
+        Username:
+        <input type="string" [(ngModel)]="username" (ngModelChange)="onUsernameChange()" name="username">
+    </label>
+</p>
+
+<form (ngSubmit)="onSubmit()">
+    <p>
+        <label>
+            Select light to control:
+            <select [(ngModel)]="id" name="id">
+                <option *ngFor="let light of lights" [value]="light.id">{{ light.name }}</option>
+              </select>
+        </label>
+    </p>
+    <p>
+        <label>
+            Color:
+            <input [(colorPicker)]="color" [style.background]="color" [cpOutputFormat]="'rgba'" [cpAlphaChannel]="'always'" />
+        </label>
+    </p>
+    <p>
+        <label>
+            State:
+            <select [(ngModel)]="state" name="state">
+            <option value="true">On</option>
+            <option value="false">Off</option>
+            </select>
+        </label>
+    </p>
+    <button type="submit">Submit</button>
+</form>
+
+<form (ngSubmit)="onAllLightsOff()">
+    <button type="submit">All lights off (/!\ WIP /!\)</button>
+</form>
+
+<p></p>
+<p>
+    <button (click)="SetLightTestStateClicked()">Set Light State Test</button>
+    Test Light State should always be on, full brightness, 255,0,0 red
+</p>
+<p>
+    <button (click)="GetLightStateClicked()">Get Light State</button>
+    Light State: {{ getLightState | json }}
+</p>
